@@ -1,12 +1,12 @@
+import { GridDigitButtonProps } from "@/interface";
 import { Button } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import { GridDigitButtonProps } from "@/interface";
 
-export const GridDigitButton: React.FC<GridDigitButtonProps> = ({
+export const GridDigitButton = ({
   digit,
   enterDigit,
   xs = 3,
-}) => {
+}: GridDigitButtonProps) => {
   return (
     <Grid container spacing={2} size={xs}>
       <Button

@@ -1,17 +1,12 @@
+import { GridOperationButtonProps } from "@/interface";
 import { Button } from "@/utils";
 import Grid from "@mui/material/Grid2";
 
-interface GridOperationButtonProps {
-  selectedOperation: string;
-  operation: string;
-  selectOperation: (digit: string) => void;
-}
-
-export const GridOperationButton: React.FC<GridOperationButtonProps> = ({
+export const GridOperationButton = ({
   selectedOperation,
   operation,
   selectOperation,
-}) => {
+}: GridOperationButtonProps) => {
   return (
     <Grid size={3} container spacing={2}>
       <Button
