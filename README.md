@@ -104,7 +104,7 @@ Contains utility functions and styled components:
 - `Button`: Styled component for the calculator buttons.
 - `evaluateExpression`: Function to evaluate arithmetic expressions.
 
-### `src/hooks/useCalculator.ts`
+### `src/components/useCalculator.ts`
 
 Contains the custom hook `useCalculator` that manages the calculator's state and logic:
 
@@ -216,7 +216,6 @@ If I had more time, I would consider the following improvements:
 ### Vite
 
 - **Reason**: A fast build tool that provides a great development experience with hot module replacement and fast builds.
-
 
 ## Contributing
 
