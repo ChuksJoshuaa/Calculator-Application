@@ -9,7 +9,12 @@ export const GridDigitButton: React.FC<GridDigitButtonProps> = ({
 }) => {
   return (
     <Grid container spacing={2} size={xs}>
-      <Button fullWidth variant="outlined" onClick={() => enterDigit(digit)}>
+      <Button
+        fullWidth
+        variant="outlined"
+        onClick={() => enterDigit(digit)}
+        data-testid="button-1"
+      >
         {digit}
       </Button>
     </Grid>

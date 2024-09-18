@@ -20,6 +20,7 @@ export const GridOperationButton: React.FC<GridOperationButtonProps> = ({
         sx={{ backgroundColor: "rgb(254,241,73,.1)" }}
         onClick={() => selectOperation(operation)}
         selected={selectedOperation === operation}
+        data-testid="button-operation"
       >
         {operation}
       </Button>
