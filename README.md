@@ -239,7 +239,7 @@ If I had more time, I would consider the following improvements:
 This file contains end-to-end tests for the main calculator application.
 
 
-#### `cypress/e2e/gridDigitButton.cy.ts`
+#### `cypress/e2e/GridDigitButton.cy.ts`
 
 This file contains tests for the `GridDigitButton` component.
 
