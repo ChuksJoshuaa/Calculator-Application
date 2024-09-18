@@ -44,7 +44,7 @@ const App = () => {
               selectedOperation={operation}
             />
             <GridOperationButton
-              operation={"÷"}
+              operation={"/"}
               selectOperation={selectOperation}
               selectedOperation={operation}
             />

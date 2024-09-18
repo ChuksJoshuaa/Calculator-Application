@@ -1,50 +1,24 @@
+import { evaluateExpression } from "@/utils";
 import { useEffect, useState } from "react";
 
 export const useCalculator = () => {
-  const [prevValue, setPrevValue] = useState("");
+  const [expression, setExpression] = useState("");
   const [currentValue, setCurrentValue] = useState("0");
   const [operation, setOperation] = useState("");
   const [overwrite, setOverwrite] = useState(true);
 
   const equals = () => {
-    const val = calculate();
+    const val = evaluateExpression(expression + currentValue);
     setCurrentValue(`${val}`);
-    setPrevValue("");
+    setExpression("");
     setOperation("");
     setOverwrite(true);
   };
 
-  const calculate = () => {
-    if (!prevValue || !operation) return currentValue;
-
-    const curr = parseFloat(currentValue);
-    const prev = parseFloat(prevValue);
-
-    let result;
-    switch (operation) {
-      case "÷" || "/":
-        result = curr === 0 ? "Error" : prev / curr;
-        break;
-      case "*":
-        result = prev * curr;
-        break;
-      case "-":
-        result = prev - curr;
-        break;
-      case "+":
-        result = prev + curr;
-        break;
-      default:
-        result = currentValue;
-    }
-
-    return result;
-  };
-
   const clear = () => {
-    setPrevValue("");
-    setOperation("");
+    setExpression("");
     setCurrentValue("0");
+    setOperation("");
     setOverwrite(true);
   };
 
@@ -64,12 +38,10 @@ export const useCalculator = () => {
   };
 
   const selectOperation = (x: string) => {
-    if (prevValue) {
-      const val = calculate();
-      setCurrentValue(`${val}`);
-      setPrevValue(`${val}`);
+    if (overwrite) {
+      setExpression(currentValue + x);
     } else {
-      setPrevValue(currentValue);
+      setExpression(expression + currentValue + x);
     }
     setOperation(x);
     setOverwrite(true);
@@ -109,7 +81,6 @@ export const useCalculator = () => {
       clear();
     } else if (key === "%") {
       squareRoot();
-      67;
     }
   };
 
@@ -118,7 +89,7 @@ export const useCalculator = () => {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentValue, prevValue, operation, overwrite]);
+  }, [currentValue, expression, operation, overwrite]);
 
   return {
     currentValue,
