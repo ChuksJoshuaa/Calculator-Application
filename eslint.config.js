@@ -16,7 +16,12 @@ export default tseslint.config(
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        cy: true,
+        cypress: true,
+         "$": false
+      },
     },
     plugins: {
       "react-hooks": reactHooks,
