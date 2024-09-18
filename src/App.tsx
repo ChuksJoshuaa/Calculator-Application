@@ -32,21 +32,25 @@ const App = () => {
               operation={"AC"}
               selectOperation={clear}
               selectedOperation={operation}
+              data-testid="button-AC"
             />
             <GridOperationButton
               operation={"C"}
               selectOperation={del}
               selectedOperation={operation}
+              data-testid="button-C"
             />
             <GridOperationButton
               operation={"%"}
               selectOperation={percent}
               selectedOperation={operation}
+              data-testid="button-%"
             />
             <GridOperationButton
               operation={"/"}
               selectOperation={selectOperation}
               selectedOperation={operation}
+              data-testid="button-/"
             />
           </Grid>
           <GridRow
@@ -55,6 +59,7 @@ const App = () => {
             selectOperation={selectOperation}
             selectedOperation={operation}
             enterDigit={setDigit}
+            data-testid="row-7-8-9"
           />
           <GridRow
             digits={["4", "5", "6"]}
@@ -62,6 +67,7 @@ const App = () => {
             selectOperation={selectOperation}
             selectedOperation={operation}
             enterDigit={setDigit}
+            data-testid="row-4-5-6"
           />
           <GridRow
             digits={["1", "2", "3"]}
@@ -69,6 +75,7 @@ const App = () => {
             selectOperation={selectOperation}
             selectedOperation={operation}
             enterDigit={setDigit}
+            data-testid="row-1-2-3"
           />
 
           <Grid container columnSpacing={1}>
@@ -80,7 +87,7 @@ const App = () => {
             <GridDigitButton xs={3} digit={"0"} enterDigit={setDigit} />
             <GridDigitButton digit={"."} enterDigit={setDigit} />
             <Grid size={3}>
-              <Button fullWidth variant="contained" onClick={equals}>
+              <Button fullWidth variant="contained" onClick={equals} data-testid="button-=">
                 =
               </Button>
             </Grid>
