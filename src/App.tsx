@@ -2,7 +2,7 @@ import { GridDigitButton } from "@/components/GridDigitButton";
 import { GridOperationButton } from "@/components/GridOperationButton";
 import { GridRow } from "@/components/GridRow";
 import { useCalculator } from "@/components/useCalculator";
-import { CalculatorBase, OutputContainer } from "@/utils";
+import { CalculatorBase, OutputContainer, roundToPrecision } from "@/utils";
 import { Button, Container } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
@@ -16,14 +16,15 @@ const App = () => {
     percent,
     selectOperation,
     setDigit,
+    squareRoot,
   } = useCalculator();
   return (
-    <Container maxWidth="sm" sx={{ marginTop: '5em'}}>
+    <Container maxWidth="xs">
       <CalculatorBase elevation={3}>
         <Grid container spacing={1}>
           <Grid size={12}>
             <OutputContainer data-testid="output">
-              {currentValue}
+              {roundToPrecision(parseFloat(currentValue))}
             </OutputContainer>
           </Grid>
           <Grid container columnSpacing={1}>
@@ -69,8 +70,14 @@ const App = () => {
             selectedOperation={operation}
             enterDigit={setDigit}
           />
+
           <Grid container columnSpacing={1}>
-            <GridDigitButton xs={6} digit={"0"} enterDigit={setDigit} />
+            <GridOperationButton
+              operation={"√"}
+              selectOperation={squareRoot}
+              selectedOperation={operation}
+            />
+            <GridDigitButton xs={3} digit={"0"} enterDigit={setDigit} />
             <GridDigitButton digit={"."} enterDigit={setDigit} />
             <Grid size={3}>
               <Button fullWidth variant="contained" onClick={equals}>

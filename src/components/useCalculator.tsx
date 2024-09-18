@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useCalculator = () => {
   const [prevValue, setPrevValue] = useState("");
@@ -22,7 +22,7 @@ export const useCalculator = () => {
 
     let result;
     switch (operation) {
-      case "÷":
+      case "÷" || "/":
         result = curr === 0 ? "Error" : prev / curr;
         break;
       case "*":
@@ -37,6 +37,7 @@ export const useCalculator = () => {
       default:
         result = currentValue;
     }
+
     return result;
   };
 
@@ -55,6 +56,11 @@ export const useCalculator = () => {
   const percent = () => {
     const curr = parseFloat(currentValue);
     setCurrentValue((curr / 100).toString());
+  };
+
+  const squareRoot = () => {
+    const curr = parseFloat(currentValue);
+    setCurrentValue(Math.sqrt(curr).toString());
   };
 
   const selectOperation = (x: string) => {
@@ -81,6 +87,39 @@ export const useCalculator = () => {
     setOverwrite(false);
   };
 
+  const handleKeyDown = (event: KeyboardEvent) => {
+    const { key } = event;
+    if (key >= "0" && key <= "9") {
+      setDigit(key);
+    } else if (key === ".") {
+      setDigit(key);
+    } else if (
+      key === "+" ||
+      key === "-" ||
+      key === "*" ||
+      key === "/" ||
+      key === "÷"
+    ) {
+      selectOperation(key);
+    } else if (key === "Enter") {
+      equals();
+    } else if (key === "Backspace" || key === "Delete") {
+      del();
+    } else if (key === "Escape") {
+      clear();
+    } else if (key === "%") {
+      squareRoot();
+      67;
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentValue, prevValue, operation, overwrite]);
+
   return {
     currentValue,
     operation,
@@ -90,5 +129,6 @@ export const useCalculator = () => {
     percent,
     selectOperation,
     setDigit,
+    squareRoot,
   };
 };

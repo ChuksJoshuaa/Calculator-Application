@@ -1,4 +1,4 @@
-import { Button as MuiButton, styled } from "@mui/material";
+import { Button } from "@/utils";
 import Grid from "@mui/material/Grid2";
 
 interface GridOperationButtonProps {
@@ -6,10 +6,6 @@ interface GridOperationButtonProps {
   operation: string;
   selectOperation: (digit: string) => void;
 }
-
-const Button = styled(MuiButton)<{ selected: boolean }>((props) => ({
-  borderColor: props.selected ? "#fff" : "rgba(255, 241, 73, 0.5)",
-}));
 
 export const GridOperationButton: React.FC<GridOperationButtonProps> = ({
   selectedOperation,
