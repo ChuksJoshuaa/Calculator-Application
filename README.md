@@ -217,6 +217,43 @@ If I had more time, I would consider the following improvements:
 
 - **Reason**: A fast build tool that provides a great development experience with hot module replacement and fast builds.
 
+## Cypress Test Cases (End-to-End (E2E) Testing)
+
+### Setting Up Cypress
+
+1. Install Cypress as a dev dependency:
+
+   ```bash
+   npm install cypress --save-dev
+   ```
+
+2. Open Cypress:
+
+   ```bash
+   npx cypress open
+   ```
+
+### Test Cases
+
+#### `cypress/e2e/App.cy.ts`
+This file contains end-to-end tests for the main calculator application.
+
+
+#### `cypress/e2e/gridDigitButton.cy.ts`
+
+This file contains tests for the `GridDigitButton` component.
+
+
+#### `cypress/e2e/GridOperationButton.cy.ts`
+
+This file contains tests for the `GridOperationButton` component.
+
+
+#### `cypress/e2e/GridRow.cy.ts`
+
+This file contains tests for the `GridRow` component.
+
+
 ## Contributing
 
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
