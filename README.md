@@ -48,7 +48,7 @@ Access the live site at [Project-Link](https://bayzat-calc.netlify.app/)
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ChuksJoshuaa/bayzat-frontend-task.git
+   git clone https://github.com/ChuksJoshuaa/Calculator-Application
    cd bayzat-frontend-task
    ```
 
